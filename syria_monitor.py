@@ -25,49 +25,118 @@ BOT_TOKEN  = os.getenv("BOT_TOKEN", "")
 MY_CHAT_ID = os.getenv("MY_CHAT_ID", "")
 
 CHANNELS = [
+    # ── ערוצים סוריים מהשטח — רשימה מקורית ──────────────
     "@SyrianCivilWarMap", "@Syria_news_ar", "@step_agency_ar",
     "@syria_direct_ar", "@Souria4Syrians", "@suwayda24",
     "@Daraa24_ar", "@Deir_Ezzor_24", "@AleppoToday",
     "@hama_news_sy", "@Idlib_news_ar", "@Damascus_news_ar",
     "@QasiounNews", "@enabbaladi", "@syriahr", "@SANA_English",
     "@Zaman_AlWasl", "@orient_news_sy", "@fajr_news_sy",
-    "@ANFNewsArabic", "@hawar_news_ar", "@BBCArabic",
-    "@AlJazeeraEnglish", "@AlJazeeraSyria", "@alarabiya_ar",
-    "@skynewsarabia", "@middleeasteye", "@france24_ar", "@DW_Arabic",
+    "@ANFNewsArabic", "@hawar_news_ar",
+
+    # ── ערוצים סוריים חדשים — מהרשימה שלך ───────────────
+    "@Lattakia_Alekhbariah",   # اللاذقية الإخبارية
+    "@AbdAlhadyridwan1",       # الإعلامي عبد الهادي رضوان
+    "@marsadalshamall",        # مرصد تحرير سوريا
+    "@Field_surveyor",         # مراسل ميداني
+    "@Adham_Damascus",         # أدهم الأيوبي - دمشق
+    "@ttasit",                 # ثورة الشام
+    "@waelo10",                # عواد wael
+    "@Qatada23",               # قتادة - سوريا
+    "@ABD963ALRHMAN",          # عبدالرحمن الشغري
+    "@Qusaialmasre",           # قصي المصري
+    "@ammamai",                # ערוץ סורי
+    "@Sada_Defense",           # صدى الدفاع
+    "@skksb108",               # ערוץ סורי
+    "@sayfallahalumawiu",      # سيف الله الأموي
+    "@muhaand19",              # الإعلامي مهند قيراطة
+    "@MOATSEM_ALAHMAD",        # معتصم الأحمد
+    "@askerioperasyonn",       # ערוץ צבאי
+    "@syrianevent1",           # أحداث سوريا
+    "@khalil124kh",            # ערוץ סורי
+    "@tvsham",                 # تلفزيون الشام
+    "@jisralshughur",          # جسر الشغور
+    "@howaboutoutm",           # ערוץ סורי
+    "@syria_2025",             # سوريا 2025
+    "@DiyaaSyria",             # ضياء سوريا
+    "@mou2027",                # ערוץ סורי
+    "@manbij_1",               # منبج
+    "@muhamad_200",            # ערוץ סורי
+
+    # ── תקשורת מערבית ────────────────────────────────────
+    "@BBCArabic", "@AlJazeeraEnglish", "@AlJazeeraSyria",
+    "@alarabiya_ar", "@skynewsarabia", "@middleeasteye",
+    "@france24_ar", "@DW_Arabic",
+
+    # ── OSINT וניתוח צבאי ────────────────────────────────
     "@IntelSlava", "@OSINTdefender", "@sentdefender",
     "@GeoConfirmed", "@Aurora_intel", "@warmonitor1",
     "@conflictnews", "@militarylandnet", "@TheDeadDistrict",
     "@rybar_en", "@airwars_org", "@oryx_blog",
-    "@MiddleEastSpectator", "@PressTV_Arabic", "@AlManarTV",
-    "@mayadeen_news", "@rybar", "@WarGonzo", "@milinfolive",
+    "@MiddleEastSpectator",
+
+    # ── איראן/חיזבאללה/רוסיה ─────────────────────────────
+    "@PressTV_Arabic", "@AlManarTV", "@mayadeen_news",
+    "@rybar", "@WarGonzo", "@milinfolive",
 ]
 
+# ── ישראל — רק איך הסורים מדברים עליה בינם לבין עצמם ──
 ISRAEL_KEYWORDS = [
-    "إسرائيل", "الجيش الإسرائيلي", "غارة إسرائيلية",
-    "القوات الإسرائيلية", "تل أبيب", "الموساد", "إسرائيلي",
-    "Israel", "IDF", "Israeli", "Tel Aviv", "Mossad", "IAF",
-    "ישראל", "צה\"ל", "Израиль",
+    # עמדות וריאקציות סוריות על ישראל
+    "الموقف من إسرائيل", "تطبيع مع إسرائيل", "التطبيع مع إسرائيل",
+    "الكيان الصهيوني", "الصهاينة", "فلسطين وسوريا",
+    "العلاقة مع إسرائيل", "إسرائيل والجولان", "الجولان السوري",
+    "الحدود مع إسرائيل", "الجبهة الجنوبية", "درعا وإسرائيل",
+    "normalization with Israel", "Golan Heights Syria",
+    "Syrian stance on Israel", "southern front Israel",
 ]
 
+# ── צבאי — מבנה, פריסה, יכולות של הצבא הסורי החדש ──
 MILITARY_KEYWORDS = [
-    "عملية عسكرية", "تقدم الجيش", "غارة جوية", "مسيّرة",
-    "صواريخ", "مدفعية", "دبابات", "معارك", "اشتباكات",
-    "منظومة دفاع جوي", "قاعدة عسكرية", "تعزيزات", "هجوم", "قصف",
-    "الحرس الثوري", "حزب الله", "أسلحة",
-    "airstrike", "military operation", "drone", "missile",
-    "artillery", "tank", "troops", "attack", "weapons", "IRGC",
+    # מבנה כוחות ופיקוד
+    "وزارة الدفاع السورية", "الجيش الوطني السوري", "هيئة الأركان",
+    "تعيين قائد", "إعادة هيكلة الجيش", "دمج الفصائل",
+    "الفصائل المسلحة", "قوات الأمن الجديدة", "وزير الدفاع",
+    "الشرطة العسكرية", "الاستخبارات العسكرية",
+    # נשק וציוד
+    "أسلحة ثقيلة", "دبابات", "مدفعية", "طائرات مسيرة",
+    "منظومة صواريخ", "ذخيرة", "مستودع أسلحة",
+    # תרגילים ומבצעים פנימיים
+    "تدريبات عسكرية", "انتشار قوات", "عملية أمنية",
+    "مكافحة الإرهاب", "داعش سوريا", "خلايا نائمة",
+    # אנגלית
+    "Syrian army restructure", "HTS military", "new Syrian army",
+    "Syrian defense ministry", "armed factions merge",
+    "ISIS Syria", "sleeper cells Syria",
 ]
 
-POLITICAL_KEYWORDS = [
-    "مفاوضات", "اتفاقية", "تطبيع", "وزير خارجية",
-    "عقوبات", "إعادة الإعمار", "الأمم المتحدة",
-    "sanctions", "diplomacy", "negotiations", "reconstruction",
+# ── פנים סוריה — פוליטיקה, דת, חברה ──
+INTERNAL_KEYWORDS = [
+    # פוליטיקה פנימית
+    "الحكومة السورية الجديدة", "أحمد الشرع", "الجولاني",
+    "المعارضة السورية", "مجلس الحكم", "الدستور السوري",
+    "الانتخابات السورية", "اللامركزية", "إدارة المناطق",
+    "الخلاف بين الفصائل", "التوترات الداخلية",
+    # דת ואידיאולוגיה
+    "الشريعة الإسلامية في سوريا", "الأقليات الدينية",
+    "العلويون", "الدروز سوريا", "المسيحيون سوريا",
+    "السنة والشيعة سوريا", "الإسلام المعتدل سوريا",
+    "هيئة العلماء", "فتوى سوريا", "الحرية الدينية سوريا",
+    # חברה וכלכלה
+    "إعادة الإعمار", "عودة اللاجئين", "الاقتصاد السوري",
+    "البطالة سوريا", "الفقر سوريا", "الخدمات الأساسية",
+    "الكهرباء سوريا", "المناطق المحررة", "المصالحة الوطنية",
+    # אנגלית
+    "new Syrian government", "Ahmed al-Sharaa", "Syria constitution",
+    "Syrian minorities", "Alawites Syria", "Druze Syria",
+    "Christians Syria", "Syria reconstruction", "Syrian economy",
+    "sectarian Syria", "religious freedom Syria",
 ]
 
 SYRIA_KEYWORDS = [
-    "سوريا", "سورية", "السوري", "دمشق", "حلب", "إدلب",
-    "حماة", "حمص", "درعا", "دير الزور", "الرقة",
-    "هيئة تحرير الشام", "قوات سوريا الديمقراطية", "الجولاني",
+    "سوريا", "سورية", "السوري", "السورية", "دمشق", "حلب", "إدلب",
+    "حماة", "حمص", "درعا", "دير الزور", "الرقة", "الحسكة",
+    "هيئة تحرير الشام", "قوات سوريا الديمقراطية",
     "Syria", "Syrian", "Damascus", "Aleppo", "Idlib", "HTS", "SDF",
 ]
 
@@ -75,19 +144,23 @@ SYRIA_KEYWORDS = [
 def find_matches(text):
     t = text.lower()
     return {
-        "israel":    [k for k in ISRAEL_KEYWORDS    if k.lower() in t],
-        "military":  [k for k in MILITARY_KEYWORDS  if k.lower() in t],
-        "political": [k for k in POLITICAL_KEYWORDS if k.lower() in t],
-        "syria":     [k for k in SYRIA_KEYWORDS     if k.lower() in t],
+        "israel":   [k for k in ISRAEL_KEYWORDS   if k.lower() in t],
+        "military": [k for k in MILITARY_KEYWORDS if k.lower() in t],
+        "internal": [k for k in INTERNAL_KEYWORDS if k.lower() in t],
+        "syria":    [k for k in SYRIA_KEYWORDS    if k.lower() in t],
     }
 
 
 def is_relevant(m):
-    return bool(m["israel"]) or (bool(m["syria"]) and bool(m["military"] or m["political"]))
+    # חייב להיות קשור לסוריה + תוכן רלוונטי
+    has_syria = bool(m["syria"])
+    has_content = bool(m["israel"] or m["military"] or m["internal"])
+    return has_syria and has_content
 
 
 def is_israel_alert(m):
-    return bool(m["israel"])
+    # התראה רק כשסורים מדברים על ישראל בהקשר סורי
+    return bool(m["israel"]) and bool(m["syria"])
 
 
 async def send_israel_alert(bot, result):
@@ -122,15 +195,15 @@ async def send_daily_report(bot, results):
 
     israel_n   = sum(1 for r in results if r["matches"]["israel"])
     military_n = sum(1 for r in results if r["matches"]["military"])
-    political_n= sum(1 for r in results if r["matches"]["political"])
+    internal_n = sum(1 for r in results if r["matches"]["internal"])
 
     header = (
-        f"📊 *דוח יומי — סוריה*\n"
+        f"📊 *דוח יומי — סוריה מבפנים*\n"
         f"📅 {datetime.now().strftime('%d/%m/%Y %H:%M')}\n"
         f"{'═' * 30}\n"
-        f"🚨 אזכורי ישראל: *{israel_n}*\n"
-        f"⚔️ צבאי: *{military_n}*\n"
-        f"🏛 מדיני: *{political_n}*\n"
+        f"🚨 ישראל בעיני הסורים: *{israel_n}*\n"
+        f"⚔️ צבאי/ביטחוני: *{military_n}*\n"
+        f"🕌 פוליטי/דתי/חברתי: *{internal_n}*\n"
         f"📰 סה\"כ: *{len(results)}*\n"
     )
     await bot.send_message(chat_id=MY_CHAT_ID, text=header,
@@ -140,7 +213,7 @@ async def send_daily_report(bot, results):
     current = ""
     for i, r in enumerate(results[:30], 1):
         icon = "🚨" if r["matches"]["israel"] else \
-               "⚔️" if r["matches"]["military"] else "🏛"
+               "⚔️" if r["matches"]["military"] else "🕌"
         text_short = r["text"][:200] + ("..." if len(r["text"]) > 200 else "")
         entry = (
             f"{icon} *{i}. {r['channel_title']}* | {r['date']}\n"
@@ -243,3 +316,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
